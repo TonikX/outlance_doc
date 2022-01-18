@@ -1,0 +1,10 @@
+site_name: Фриланс бирда Outlance
+nav:
+  - Home: index.md
+  - Api:
+      - Portfolio:
+          - Check portfolio:
+              - "Создание проверки": portfolio/check.md
+
+theme:
+  name: material
