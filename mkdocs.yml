@@ -1,10 +1,11 @@
-site_name: Фриланс бирда Outlance
+site_name: Фриланс биржа "Outlance"
 nav:
   - Home: index.md
   - Api:
       - Portfolio:
-          - Check portfolio:
-              - "Создание проверки": portfolio/check.md
+          - "Проверка портфолио": portfolio/check.md
+      - Order:
+          - "Создание заказа": portfolio/check.md
 
 theme:
   name: material

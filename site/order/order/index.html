@@ -13,7 +13,7 @@
     
     
       
-        <title>Создание проверки - Фриланс бирда Outlance</title>
+        <title>Создание заказа - Фриланс бирда Outlance</title>
       
     
     
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Создание проверки
+              Создание заказа
             
           </span>
         </div>
@@ -190,14 +190,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
@@ -218,14 +216,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
       
       
       
@@ -246,14 +242,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_1" type="checkbox" id="__nav_2_1_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_1" type="checkbox" id="__nav_2_1_1" >
       
       
       
@@ -274,52 +268,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Создание проверки
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../portfolio/check/" class="md-nav__link">
         Создание проверки
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#json-example" class="md-nav__link">
-    Json Example
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -391,51 +344,35 @@
               
                 
 
-<h1 id="_1">Создание проверки портфолио</h1>
-<p>Проверка создается автоматически во время того, как юзер переводит портфолио из статуса "in_work" в статус "on_check".
-В этот момент создаются три таблицы CheckExecutorPortfolio и таблицы CheckSkillInPortfolio, соответствующие скилам портфолио (api_v2.signals.portfolio_review_generator).</p>
-<p>/api_v2/portfolio/{id}/ </p>
+<h1 id="_1">Создание заказа</h1>
+<p>Создание/изменение заказа
+/api_v2/order/ [POST/ PATCH]</p>
+<p>Статусы заказа:
+- 'search'
+- 'started'
+- 'prepare'
+- 'in_progress'
+- 'wait_confirm'
+- 'completed'
+- 'canceled'</p>
 <h3 id="json-example">Json Example</h3>
 <pre><code class="language-json">{
-    &quot;type&quot;: 0,
-    &quot;categories&quot;: [
-        0
-    ],
-    &quot;confirmation&quot;: &quot;in_work&quot; -&gt; &quot;on_check&quot; !!!
+  &quot;category&quot;: [
+    0 // ид категорий через запятую (нужно передать список целком)
+  ],
+  &quot;status&quot;: &quot;search&quot;, // статус (варианты выше)
+  &quot;name&quot;: &quot;string&quot;,
+  &quot;task&quot;: &quot;string&quot;,
+  &quot;price&quot;: 0,
+  &quot;from_deadline&quot;: &quot;2022-01-17T14:10:49.251Z&quot;,
+  &quot;to_deadline&quot;: &quot;2022-01-17T14:10:49.251Z&quot;,
+  &quot;executor_score&quot;: 0,
+  &quot;customer_score&quot;: 0,
+  &quot;term&quot;: 0, // срок выполнения
+  &quot;type&quot;: 0, // ид типа заказа
+  &quot;customer&quot;: 0 // передавать не нужно, подставится сам
 }
 </code></pre>
-<h1 id="_2">Получение заданий на проверку модераторами</h1>
-<p>Получение списка доступных для проверки и проверенных портфолио, можно офильтровать по статусу проверки:</p>
-<p>Возможные статусы:
-- 'confirmed'
-- 'not_enough_skills'
-- 'no_work'
-- 'this_is_spam'
-- 'on_check'</p>
-<p>Пример с фильтром:</p>
-<p>/api_v2/check_portfolio/?page=1&amp;confirmation=no_work [GET]</p>
-<p>Пользователь должен быть в группе "moderators"</p>
-<h1 id="_3">Сохранение результатов проверки</h1>
-<p>Модератор передает список скилов, которые необходимо оценить и результат оценки.
-Возможные статусы:
-- 'confirmed'
-- 'not_enough_skills'
-- 'no_work'
-- 'this_is_spam'
-- 'on_check'</p>
-<p>/api_v2/check_portfolio/{id}/ [PATCH]</p>
-<p>Пользователь должен быть в группе "moderators", во внешнем ключе на модератора должен быть указан текущий юзер</p>
-<pre><code class="language-json">{
-    &quot;check_skills_in_portfolio&quot;: [ //список скилов со статусом подтверждения скила
-        {
-            &quot;id&quot;: 0,
-            &quot;confirmation&quot;: true
-        }
-    ],
-    &quot;confirmation&quot;: &quot;confirmed&quot;
-}
-</code></pre>
-<h1 id="_4">Проверка результатов</h1>
 
               
             </article>
@@ -445,26 +382,6 @@
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Home
-            </div>
-          </div>
-        </a>
-      
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
