@@ -367,6 +367,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#json-example_1" class="md-nav__link">
+    Json Example
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -386,11 +393,6 @@
                 
 
 <h1 id="_1">Связь заказа и исполнителя</h1>
-<p>low budget
-short time
-incomprehensible task
-not enough skills
-I'm busy</p>
 <h2 id="_2">Обновление</h2>
 <p>/api_v2/order/review/{id}/ [PATCH]</p>
 <p>Для обновления необъодимо использовать id, полученный при просмотре заказа по ендпоинту
@@ -410,6 +412,19 @@ I'm busy</p>
     }
   ],
   &quot;term&quot;: 0
+}
+</code></pre>
+<p>Статусы исполнителя в заказе:</p>
+<ul>
+<li>low_budget</li>
+<li>short_time</li>
+<li>incomprehensible_task</li>
+<li>not_enough_skills</li>
+<li>Im_busy</li>
+</ul>
+<h3 id="json-example_1">Json Example</h3>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;looked&quot;
 }
 </code></pre>
 
