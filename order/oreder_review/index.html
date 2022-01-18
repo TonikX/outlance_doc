@@ -495,6 +495,15 @@
 </code></pre>
 <p>Статусы исполнителя в заказе:</p>
 <ul>
+<li>looked</li>
+<li>reconciliation</li>
+<li>rejected</li>
+<li>accepted</li>
+<li>in_progress</li>
+<li>done</li>
+</ul>
+<p>Причины причины отмены заказа:</p>
+<ul>
 <li>low_budget</li>
 <li>short_time</li>
 <li>incomprehensible_task</li>
@@ -503,7 +512,8 @@
 </ul>
 <h3 id="json-example_1">Json Example</h3>
 <pre><code class="language-json">{
-  &quot;status&quot;: &quot;looked&quot;
+  &quot;status&quot;: &quot;looked&quot;,
+  &quot;cancel_reason&quot;: &quot;low_budget&quot;,
 }
 </code></pre>
 
