@@ -68,7 +68,9 @@
                 </li>
                 <li class="toctree-l2 current"><a class="reference internal current" href="./">Работа исполнителя с заказом</a>
     <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#_2">Обновление</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">Создание</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">Обновление</a>
     </li>
     </ul>
                 </li>
@@ -117,7 +119,9 @@
             <div class="section">
               
                 <h1 id="_1">Связь заказа и исполнителя</h1>
-<h2 id="_2">Обновление</h2>
+<h2 id="_2">Создание</h2>
+<p>Когда текущий юзер обращается к ендпоинту /api_v2/order/{id}/ [GET], для него создается таблица OrderReview (отклик по заказу).</p>
+<h2 id="_3">Обновление</h2>
 <p>/api_v2/order/review/{id}/ [PATCH]</p>
 <p>Для обновления необъодимо использовать id, полученный при просмотре заказа по ендпоинту
 /api_v2/order/{id}/ [GET]</p>
