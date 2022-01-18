@@ -70,7 +70,7 @@
     <ul class="current">
     <li class="toctree-l3"><a class="reference internal" href="#_2">Создание</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_3">Обновление</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">Обновление отклика на заказ</a>
     </li>
     </ul>
                 </li>
@@ -121,9 +121,9 @@
                 <h1 id="_1">Связь заказа и исполнителя</h1>
 <h2 id="_2">Создание</h2>
 <p>Когда текущий юзер обращается к ендпоинту /api_v2/order/{id}/ [GET], для него создается таблица OrderReview (отклик по заказу).</p>
-<h2 id="_3">Обновление</h2>
+<h2 id="_3">Обновление отклика на заказ</h2>
 <p>/api_v2/order/review/{id}/ [PATCH]</p>
-<p>Для обновления необходимо использовать id, полученный при просмотре заказа по ендпоинту
+<p>Для обновления отклика на заказ необходимо использовать id, полученный при просмотре заказа по ендпоинту
 /api_v2/order/{id}/ [GET]</p>
 <p><strong>Пример ответа при просмотре заказа (/api_v2/order/{id}/ [GET]) </strong></p>
 <pre><code class="language-json">{
@@ -131,7 +131,7 @@
   &quot;customer_score&quot;: 0,
   &quot;order_in_order_review&quot;: [
     {
-      &quot;id&quot;: 0, //&lt;------- По данному ID нужно обновлять исполнителя в заказе по ендпоинту /api_v2/order/review/{id}/ [PATCH]
+      &quot;id&quot;: 0, //&lt;------- По данному ID нужно обновлять отклик на заказ по ендпоинту /api_v2/order/review/{id}/ [PATCH]
       &quot;status&quot;: &quot;looked&quot;,
       &quot;to_price&quot;: 0,
       &quot;to_deadline&quot;: &quot;2022-01-18T20:33:23.903Z&quot;,
