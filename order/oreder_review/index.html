@@ -123,15 +123,15 @@
 <p>Когда текущий юзер обращается к ендпоинту /api_v2/order/{id}/ [GET], для него создается таблица OrderReview (отклик по заказу).</p>
 <h2 id="_3">Обновление</h2>
 <p>/api_v2/order/review/{id}/ [PATCH]</p>
-<p>Для обновления необъодимо использовать id, полученный при просмотре заказа по ендпоинту
+<p>Для обновления необходимо использовать id, полученный при просмотре заказа по ендпоинту
 /api_v2/order/{id}/ [GET]</p>
-<p><strong>Json Example for /api_v2/order/{id}/ [GET]</strong></p>
+<p><strong>Пример ответа при просмотре заказ (/api_v2/order/{id}/ [GET]) </strong></p>
 <pre><code class="language-json">{
   ...
   &quot;customer_score&quot;: 0,
   &quot;order_in_order_review&quot;: [
     {
-      &quot;id&quot;: 0, //&lt;------- Этот id. По нему нужно обновлять исполнителя в заказе (/api_v2/order/review/{id}/ [PATCH])
+      &quot;id&quot;: 0, //&lt;------- По данному ID нужно обновлять исполнителя в заказе по ендпоинту /api_v2/order/review/{id}/ [PATCH]
       &quot;status&quot;: &quot;looked&quot;,
       &quot;to_price&quot;: 0,
       &quot;to_deadline&quot;: &quot;2022-01-18T20:33:23.903Z&quot;,
