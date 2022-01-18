@@ -70,9 +70,9 @@
     <ul class="current">
     <li class="toctree-l3"><a class="reference internal" href="#_2">Обновление</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#json-example">Json Example</a>
+    <li class="toctree-l4"><a class="reference internal" href="#json-example-for-api_v2orderid-get">Json Example for /api_v2/order/{id}/ [GET]</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#json-example_1">Json Example</a>
+    <li class="toctree-l4"><a class="reference internal" href="#json-example">Json Example</a>
     </li>
         </ul>
     </li>
@@ -127,13 +127,13 @@
 <p>/api_v2/order/review/{id}/ [PATCH]</p>
 <p>Для обновления необъодимо использовать id, полученный при просмотре заказа по ендпоинту
 /api_v2/order/{id}/ [GET]</p>
-<h3 id="json-example">Json Example</h3>
+<h3 id="json-example-for-api_v2orderid-get">Json Example for /api_v2/order/{id}/ [GET]</h3>
 <pre><code class="language-json">{
   ...
   &quot;customer_score&quot;: 0,
   &quot;order_in_order_review&quot;: [
     {
-      &quot;id&quot;: 0, &lt;------- Этот id.
+      &quot;id&quot;: 0, &lt;------- Этот id. По нему нужно обновлять исполнителя в заказе (/api_v2/order/review/{id}/ [PATCH])
       &quot;status&quot;: &quot;looked&quot;,
       &quot;to_price&quot;: 0,
       &quot;to_deadline&quot;: &quot;2022-01-18T20:33:23.903Z&quot;,
@@ -161,7 +161,7 @@
 <li>not_enough_skills</li>
 <li>Im_busy</li>
 </ul>
-<h3 id="json-example_1">Json Example</h3>
+<h3 id="json-example">Json Example</h3>
 <pre><code class="language-json">{
   &quot;status&quot;: &quot;looked&quot;,
   &quot;cancel_reason&quot;: &quot;low_budget&quot;,
