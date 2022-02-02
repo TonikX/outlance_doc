@@ -140,8 +140,8 @@ ws://localhost:8888/messenger/chat/?token={{Обычный ЖВТ токен}}</
 </li>
 </ul>
 <p>Во время подключения нужно послать сдедующие запросы:</p>
-<p>1) {pk: "1", action: "join_room", request_id: 1643788752396} - подключение к чату.
-2) {pk: "1", action: "retrieve", request_id: 1643788752396} - получение <strong>ВСЕХ</strong> сообщений чата по ИД чата.</p>
+<p>1) {pk: "1", action: "join_room", request_id: 1643788752396} - подключение к чату.</p>
+<p>2) {pk: "1", action: "retrieve", request_id: 1643788752396} - получение <strong>ВСЕХ</strong> сообщений чата по ИД чата.</p>
 <p>Пример ответа:</p>
 <pre><code class="language-json">action: &quot;retrieve&quot; - &quot;Эндпоинт&quot;
 data: 
@@ -152,8 +152,8 @@ errors: []
 request_id: 1643788752396 - дата и время (нужно для идентификации запросов сервером
 response_status: 200 - код ответа (аналог статусов в хттп)
 </code></pre>
-<p>3) {pk: "1", action: "subscribe_to_messages_in_room", request_id: 1643788752396} - подписка на все сообщения из чата
-4) {pk: "1", page: "1", action: "user_chat_list_action", request_id: 1643788752396} - получение всех чатов, к которым подключен юзер</p>
+<p>3) {pk: "1", action: "subscribe_to_messages_in_room", request_id: 1643788752396} - подписка на все сообщения из чата</p>
+<p>4) {pk: "1", page: "1", action: "user_chat_list_action", request_id: 1643788752396} - получение всех чатов, к которым подключен юзер</p>
 <p>Пример ответа:</p>
 <pre><code class="language-json">   action: &quot;user_chat_list_action&quot;
    data:
