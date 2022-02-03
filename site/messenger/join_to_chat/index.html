@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Работа с чатом - Фриланс биржа "Outlance"</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u0420\u0430\u0431\u043e\u0442\u0430 \u0441 \u0447\u0430\u0442\u043e\u043c";
+    var mkdocs_page_input_path = "messenger\\join_to_chat.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Фриланс биржа "Outlance"</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="#">Portfolio</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../portfolio/check/">Проверка портфолио</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Order</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../order/order/">Создание заказа</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../order/files/">Загрузка файлов в заказ</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../order/oreder_review/">Работа исполнителя с заказом</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Messenger</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Работа с чатом</a>
+    <ul class="current">
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Фриланс биржа "Outlance"</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Api &raquo;</li>
+        
+      
+        
+          <li>Messenger &raquo;</li>
+        
+      
+    
+    <li>Работа с чатом</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="_1">Подключение к чату.</h2>
+<p>Чат создается автоматически при переводе таблицы OrderReview между заказом заказчика и исполнителем в статус "in_progress".</p>
+<p>Подключение к чату.
+ws://localhost:8888/messenger/chat/?token={{Обычный ЖВТ токен}}</p>
+<p>Формат запросов к чату:</p>
+<ul>
+<li>
+<p>action: "join_room" - аналог url адреса в http запросах</p>
+</li>
+<li>
+<p>pk: "1"</p>
+</li>
+<li>
+<p>request_id: 1643788752396 - дата и время (нужно для идентификации запросов сервером) (Пример: request_id = new Date().getTime())</p>
+</li>
+<li>
+<p>Далее могут быть любые поля в зависимости от запроса</p>
+</li>
+</ul>
+<p>Во время подключения нужно послать сдедующие запросы:</p>
+<p>1) {pk: "1", action: "join_room", request_id: 1643788752396} - подключение к чату.</p>
+<p>2) {pk: "1", action: "retrieve", request_id: 1643788752396} - получение <strong>ВСЕХ</strong> сообщений чата по ИД чата.</p>
+<p>Пример ответа:</p>
+<pre><code class="language-json">action: &quot;retrieve&quot; - &quot;Эндпоинт&quot;
+data: 
+  last_message: {id: 43, created_at_formatted: &quot;31-01-2022 07:54:41&quot;,…}
+  messages: [{id: 1, created_at_formatted: &quot;25-01-2022 15:08:43&quot;,…},…]
+pk: 1 - ид чата
+errors: []
+request_id: 1643788752396 - дата и время (нужно для идентификации запросов сервером
+response_status: 200 - код ответа (аналог статусов в хттп)
+</code></pre>
+<p>3) {pk: "1", action: "subscribe_to_messages_in_room", request_id: 1643788752396} - подписка на все сообщения из чата</p>
+<p>4) {pk: "1", page: "1", action: "user_chat_list_action", request_id: 1643788752396} - получение всех чатов, к которым подключен юзер</p>
+<p>Пример ответа:</p>
+<pre><code class="language-json">   action: &quot;user_chat_list_action&quot;
+   data:
+   0: {pk: 1, executor: {id: 3, username: &quot;moderator1&quot;, email: &quot;moderator1@mail.ru&quot;},…}
+   1: {pk: 2, executor: {id: 4, username: &quot;moderator2&quot;, email: &quot;moderator2@mail.ru&quot;},…}
+   errors: []
+   request_id: 1643788752396
+   response_status: 200
+</code></pre>
+<p>5) {pk: "1", message: "", page: "1", action: "retrive_room_paginated_message_action", request_id: 1643788752396} - получение <strong>пагинированного</strong> списка сообщений</p>
+<p>Page - номер страницы</p>
+<p>Пример ответа:</p>
+<pre><code class="language-json">{
+  &quot;page&quot;: &quot;1&quot;,
+  &quot;default_page_size&quot;: 30, - количество сообщений поумолчанию
+  &quot;page_count_of_messages&quot;: 1, - количество сообщений в этом ответе
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;created_at_formatted&quot;: &quot;25-01-2022 15:08:43&quot;,
+      &quot;user&quot;: {
+        &quot;id&quot;: 1,
+        &quot;username&quot;: &quot;testexecutor&quot;,
+        &quot;email&quot;: &quot;testexecutor@outlance.me&quot;
+      },
+      &quot;text&quot;: &quot;dfdfdfdf&quot;,
+      &quot;date&quot;: &quot;2022-01-25T15:08:43.700504Z&quot;,
+      &quot;chat&quot;: 1,
+      &quot;reply_to_message&quot;: null
+    },
+  ]
+}
+</code></pre>
+<p>6) {message: "", action: "create_message", request_id: 1643788752396} - послать сообщение в чат.</p>
+<p>Сообщение приходит автоматически всем участникам чата.</p>
+<p>Пример ответа:</p>
+<pre><code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 45,
+        &quot;created_at_formatted&quot;: &quot;02-02-2022 08:21:33&quot;,
+        &quot;user&quot;: {
+            &quot;id&quot;: 1,
+            &quot;username&quot;: &quot;testexecutor&quot;,
+            &quot;email&quot;: &quot;testexecutor@outlance.me&quot;
+        },
+        &quot;text&quot;: &quot;&quot;,
+        &quot;date&quot;: &quot;2022-02-02T08:21:33.724162Z&quot;,
+        &quot;chat&quot;: 1,
+        &quot;reply_to_message&quot;: null
+    },
+    &quot;action&quot;: &quot;create&quot;,
+    &quot;pk&quot;: 45
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../../order/oreder_review/" class="btn btn-neutral" title="Работа исполнителя с заказом"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../order/oreder_review/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

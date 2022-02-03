@@ -5,7 +5,15 @@ nav:
       - Portfolio:
           - "Проверка портфолио": portfolio/check.md
       - Order:
-          - "Создание заказа": portfolio/check.md
+          - "Создание заказа": order/order.md
+          - "Загрузка файлов в заказ": order/files.md
+          - "Работа исполнителя с заказом": order/oreder_review.md
+      - Messenger:
+          - "Работа с чатом": messenger/join_to_chat.md
 
 theme:
-  name: material
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - rust

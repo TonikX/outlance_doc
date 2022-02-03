@@ -12,6 +12,8 @@
 - 'completed'
 - 'canceled'
 
+Дефолтный статус 'prepare'
+
 ### Json Example
 ```json
 {
