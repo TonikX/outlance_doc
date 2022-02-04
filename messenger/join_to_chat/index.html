@@ -141,7 +141,7 @@ ws://localhost:8888/messenger/chat/?token={{Обычный ЖВТ токен}}</
 </ul>
 <p>Во время подключения нужно послать сдедующие запросы:</p>
 <p>1) {pk: "1", action: "join_room", request_id: 1643788752396} - подключение к чату.</p>
-<p>2) {pk: "1", action: "retrieve", request_id: 1643788752396} - получение <strong>ВСЕХ</strong> сообщений чата по ИД чата.</p>
+<p>2) {pk: "1", action: "retrieve", request_id: 1643788752396} - получение <strong>ВСЕХ</strong> сообщений чата по ИД чата (если чат пагинированный action - "retrive_room_paginated_message_action".</p>
 <p>Пример ответа:</p>
 <pre><code class="language-json">action: &quot;retrieve&quot; - &quot;Эндпоинт&quot;
 data: 
@@ -153,7 +153,7 @@ request_id: 1643788752396 - дата и время (нужно для идент
 response_status: 200 - код ответа (аналог статусов в хттп)
 </code></pre>
 <p>3) {pk: "1", action: "subscribe_to_messages_in_room", request_id: 1643788752396} - подписка на все сообщения из чата</p>
-<p>4) {pk: "1", page: "1", action: "user_chat_list_action", request_id: 1643788752396} - получение всех чатов, к которым подключен юзер</p>
+<p>4) {action: "user_chat_list_action", request_id: 1643788752396} - получение всех чатов, к которым подключен юзер (если нужен пагинированный вывод - pag_user_chat_list_action)</p>
 <p>Пример ответа:</p>
 <pre><code class="language-json">   action: &quot;user_chat_list_action&quot;
    data:
@@ -206,6 +206,52 @@ response_status: 200 - код ответа (аналог статусов в х�
     },
     &quot;action&quot;: &quot;create&quot;,
     &quot;pk&quot;: 45
+}
+</code></pre>
+<p>7) {pk: "1", page: "1", action: "pag_user_chat_list_action", request_id: 1643960964254} - пагинированный список чатов ткущего юзера
+   action: "pag_user_chat_list_action"
+   page: "1"
+   pk: "1"
+   request_id: 1643960964254</p>
+<p>Пример ответа:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [],
+  &quot;data&quot;: {
+    &quot;page&quot;: &quot;1&quot;,
+    &quot;default_page_size&quot;: 30,
+    &quot;page_count_of_chats&quot;: 2,
+    &quot;data&quot;: [
+      {
+        &quot;pk&quot;: 1,
+        &quot;executor&quot;: {
+          &quot;id&quot;: 3,
+          &quot;username&quot;: &quot;moderator1&quot;,
+          &quot;email&quot;: &quot;moderator1@mail.ru&quot;
+        },
+        &quot;customer&quot;: {
+          &quot;id&quot;: 1,
+          &quot;username&quot;: &quot;testexecutor&quot;,
+          &quot;email&quot;: &quot;testexecutor@outlance.me&quot;
+        }
+      },
+      {
+        &quot;pk&quot;: 2,
+        &quot;executor&quot;: {
+          &quot;id&quot;: 4,
+          &quot;username&quot;: &quot;moderator2&quot;,
+          &quot;email&quot;: &quot;moderator2@mail.ru&quot;
+        },
+        &quot;customer&quot;: {
+          &quot;id&quot;: 1,
+          &quot;username&quot;: &quot;testexecutor&quot;,
+          &quot;email&quot;: &quot;testexecutor@outlance.me&quot;
+        }
+      }
+    ]
+  },
+  &quot;action&quot;: &quot;pag_user_chat_list_action&quot;,
+  &quot;response_status&quot;: 200,
+  &quot;request_id&quot;: 1643960964254
 }
 </code></pre>
               
