@@ -62,7 +62,7 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="#">Order</a>
     <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../order/">Создание заказа</a>
+                <li class="toctree-l2"><a class="reference internal" href="../order/">Создание и просмотр заказов</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../files/">Загрузка файлов в заказ</a>
                 </li>
@@ -71,6 +71,10 @@
     <li class="toctree-l3"><a class="reference internal" href="#_2">Создание</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#_3">Обновление отклика на заказ</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">Выбор исполнителя</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">Просмотр списка возможных исполнителей для заказа</a>
     </li>
     </ul>
                 </li>
@@ -171,6 +175,69 @@
 <pre><code class="language-json">{
   &quot;status&quot;: &quot;looked&quot;,
   &quot;cancel_reason&quot;: &quot;low_budget&quot;,
+}
+</code></pre>
+<h2 id="_4">Выбор исполнителя</h2>
+<p>Для выбор исполнителя нужно воспользоваться ендпоинтом [POST]/api_v2/order/review_for_customer/{id}/ и послать параметр "status": "accepted"
+В момент, когда один отклик получит статус, все октрытые получат статус rejectd
+<strong>Json Example</strong></p>
+<pre><code class="language-json">{
+&quot;status&quot;: &quot;accepted&quot;
+}
+</code></pre>
+<h2 id="_5">Просмотр списка возможных исполнителей для заказа</h2>
+<p>Просмотр списка откликов на заказ (доступе только заказчику):</p>
+<p>[GET]/api_v2/order/reviews_by_order_id/{id}/
+id - ид заказа</p>
+<p><strong>Json Example</strong></p>
+<pre><code class="language-json">{
+  &quot;count&quot;: 2,
+  &quot;next&quot;: null,
+  &quot;previous&quot;: null,
+  &quot;results&quot;: [
+    {
+      &quot;id&quot;: 7,
+      &quot;status&quot;: &quot;rejected&quot;,
+      &quot;to_price&quot;: null,
+      &quot;to_deadline&quot;: null,
+      &quot;cancel_reason&quot;: null,
+      &quot;show&quot;: null,
+      &quot;executor&quot;: {
+        &quot;id&quot;: 6,
+        &quot;username&quot;: &quot;moderator4&quot;,
+        &quot;first_name&quot;: &quot;&quot;,
+        &quot;last_name&quot;: &quot;&quot;,
+        &quot;email&quot;: &quot;moderator4@mail.ru&quot;,
+        &quot;level&quot;: null,
+        &quot;about&quot;: &quot;&quot;,
+        &quot;balls&quot;: 100,
+        &quot;phone&quot;: null,
+        &quot;avatar&quot;: null,
+        &quot;rating&quot;: 4
+      }
+    },
+    {
+      &quot;id&quot;: 8,
+      &quot;status&quot;: &quot;accepted&quot;,
+      &quot;to_price&quot;: null,
+      &quot;to_deadline&quot;: null,
+      &quot;cancel_reason&quot;: null,
+      &quot;show&quot;: null,
+      &quot;executor&quot;: {
+        &quot;id&quot;: 4,
+        &quot;username&quot;: &quot;moderator2&quot;,
+        &quot;first_name&quot;: &quot;&quot;,
+        &quot;last_name&quot;: &quot;&quot;,
+        &quot;email&quot;: &quot;moderator2@mail.ru&quot;,
+        &quot;level&quot;: null,
+        &quot;about&quot;: &quot;&quot;,
+        &quot;balls&quot;: 100,
+        &quot;phone&quot;: null,
+        &quot;avatar&quot;: null,
+        &quot;rating&quot;: 4
+      }
+    }
+  ]
 }
 </code></pre>
               
