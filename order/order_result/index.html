@@ -157,12 +157,49 @@
 <p>Для отображения правок пок конкретному заказу, необходимо послать параметр order со ссылкой на заказ.</p>
 <p>Пример:</p>
 <p>[GET] /api_v2/order_correction/?order=5</p>
+<p><strong>Json Example</strong></p>
+<pre><code class="language-json">{
+  &quot;count&quot;: 2,
+  &quot;next&quot;: null,
+  &quot;previous&quot;: null,
+  &quot;results&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;confirmation&quot;: &quot;accepted&quot;,
+      &quot;executor_comment&quot;: null,
+      &quot;customer_comment&quot;: null,
+      &quot;surcharge&quot;: 12,
+      &quot;order&quot;: 6
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;confirmation&quot;: &quot;wait&quot;,
+      &quot;executor_comment&quot;: null,
+      &quot;customer_comment&quot;: null,
+      &quot;surcharge&quot;: null,
+      &quot;order&quot;: 6
+    }
+  ]
+}
+</code></pre>
 <h2 id="_6">Ответ на правки со стороны исполнителя</h2>
 <p>[PATCH] /api_v2/order_correction/{id}</p>
 <p>Исполнитель может послать только поля: 'executor_comment', 'surcharge'</p>
+<p><strong>Json Example</strong></p>
+<pre><code class="language-json">{
+  &quot;executor_comment&quot;: &quot;string&quot;,
+  &quot;surcharge&quot;: 0
+}
+</code></pre>
 <h2 id="_7">Ответ на парвки со стороны заказчика</h2>
 <p>[PATCH] /api_v2/order_correction/{id}</p>
 <p>Заказчик может послать только поля: 'customer_comment', 'confirmation'</p>
+<p><strong>Json Example</strong></p>
+<pre><code class="language-json">{
+  &quot;confirmation&quot;: &quot;wait&quot;,
+  &quot;customer_comment&quot;: &quot;string&quot;
+}
+</code></pre>
               
             </div>
           </div>
