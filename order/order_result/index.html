@@ -184,7 +184,8 @@
 </code></pre>
 <h2 id="_6">Ответ на правки со стороны исполнителя</h2>
 <p>[PATCH] /api_v2/order_correction/{id}</p>
-<p>Исполнитель может послать только поля: 'executor_comment', 'surcharge'</p>
+<p>Исполнитель может послать только поля: 'executor_comment', 'surcharge'
+Исполнителем должен быть исполнитель именно этого заказа!</p>
 <p><strong>Json Example</strong></p>
 <pre><code class="language-json">{
   &quot;executor_comment&quot;: &quot;string&quot;,
@@ -193,7 +194,8 @@
 </code></pre>
 <h2 id="_7">Ответ на парвки со стороны заказчика</h2>
 <p>[PATCH] /api_v2/order_correction/{id}</p>
-<p>Заказчик может послать только поля: 'customer_comment', 'confirmation'</p>
+<p>Заказчик может послать только поля: 'customer_comment', 'confirmation'
+Заказчиком должен быть заказчикь именно этого заказа!</p>
 <p><strong>Json Example</strong></p>
 <pre><code class="language-json">{
   &quot;confirmation&quot;: &quot;wait&quot;,
