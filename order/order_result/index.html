@@ -165,6 +165,31 @@
   &quot;results&quot;: [
     {
       &quot;id&quot;: 1,
+      &quot;order_results_for_corrections&quot;: [
+        {
+          &quot;id&quot;: 14,
+          &quot;confirmation&quot;: null,
+          &quot;comment&quot;: &quot;string&quot;,
+          &quot;order_correction&quot;: 1,
+          &quot;order&quot;: null
+        },
+        {
+          &quot;id&quot;: 13,
+          &quot;confirmation&quot;: null,
+          &quot;comment&quot;: &quot;string&quot;,
+          &quot;order_correction&quot;: 1,
+          &quot;order&quot;: null
+        }
+      ],
+      &quot;files_in_order_corrections&quot;: [
+        {
+          &quot;id&quot;: 1,
+          &quot;file&quot;: &quot;http://localhost:8888/media/order_correction_1/%D0%93%D0%BE%D0%B2%D0%BE%D1%80%D0%BE%D0%B2_734.pdf&quot;,
+          &quot;name&quot;: &quot;вава&quot;,
+          &quot;size&quot;: null,
+          &quot;order_correction&quot;: 1
+        }
+      ],
       &quot;confirmation&quot;: &quot;accepted&quot;,
       &quot;executor_comment&quot;: null,
       &quot;customer_comment&quot;: null,
@@ -173,6 +198,8 @@
     },
     {
       &quot;id&quot;: 2,
+      &quot;order_results_for_corrections&quot;: [],
+      &quot;files_in_order_corrections&quot;: [],
       &quot;confirmation&quot;: &quot;wait&quot;,
       &quot;executor_comment&quot;: null,
       &quot;customer_comment&quot;: null,
@@ -182,6 +209,10 @@
   ]
 }
 </code></pre>
+<ul>
+<li>order_results_for_corrections - результаты работы по правке</li>
+<li>files_in_order_corrections - файлы в праве</li>
+</ul>
 <h2 id="_6">Ответ на правки со стороны исполнителя</h2>
 <p>[PATCH] /api_v2/order_correction/{id}</p>
 <p>Исполнитель может послать только поля: 'executor_comment', 'surcharge'
