@@ -155,6 +155,7 @@
 <p>Передать можно только поля: 'customer_comment', 'order'</p>
 <h2 id="_5">Просмотр правок к заказу</h2>
 <p>Для отображения правок пок конкретному заказу, необходимо послать параметр order со ссылкой на заказ.</p>
+<p>Нельзя просмотреть полный список правок на сервере без указания заказа (?order=). При попытке просмотреть все заказы сервер выдаст: "error": "you can't see the list of edits from all orders on the server"</p>
 <p>Пример:</p>
 <p>[GET] /api_v2/order_correction/?order=5</p>
 <p><strong>Json Example</strong></p>
@@ -168,6 +169,22 @@
       &quot;order_results_for_corrections&quot;: [
         {
           &quot;id&quot;: 14,
+          &quot;files_in_order_result&quot;: [
+            {
+              &quot;id&quot;: 2,
+              &quot;file&quot;: &quot;http://localhost:8888/media/order_result_14/input2_up_21022022_aJWH9GE.xlsx&quot;,
+              &quot;name&quot;: &quot;input2_up_21022022.xlsx&quot;,
+              &quot;size&quot;: 10162352,
+              &quot;order_result&quot;: 14
+            },
+            {
+              &quot;id&quot;: 3,
+              &quot;file&quot;: &quot;http://localhost:8888/media/order_result_14/input2_up_21022022_2yVSKe7.xlsx&quot;,
+              &quot;name&quot;: &quot;input2_up_21022022.xlsx&quot;,
+              &quot;size&quot;: 10162352,
+              &quot;order_result&quot;: 14
+            }
+          ],
           &quot;confirmation&quot;: null,
           &quot;comment&quot;: &quot;string&quot;,
           &quot;order_correction&quot;: 1,
@@ -175,6 +192,7 @@
         },
         {
           &quot;id&quot;: 13,
+          &quot;files_in_order_result&quot;: [],
           &quot;confirmation&quot;: null,
           &quot;comment&quot;: &quot;string&quot;,
           &quot;order_correction&quot;: 1,
@@ -199,7 +217,22 @@
     {
       &quot;id&quot;: 2,
       &quot;order_results_for_corrections&quot;: [],
-      &quot;files_in_order_corrections&quot;: [],
+      &quot;files_in_order_corrections&quot;: [
+        {
+          &quot;id&quot;: 2,
+          &quot;file&quot;: &quot;http://localhost:8888/media/order_correction_2/input2_up_21022022.xlsx&quot;,
+          &quot;name&quot;: &quot;input2_up_21022022.xlsx&quot;,
+          &quot;size&quot;: 10162352,
+          &quot;order_correction&quot;: 2
+        },
+        {
+          &quot;id&quot;: 3,
+          &quot;file&quot;: &quot;http://localhost:8888/media/order_correction_2/input2_up_21022022_0nEu4NL.xlsx&quot;,
+          &quot;name&quot;: &quot;input2_up_21022022.xlsx&quot;,
+          &quot;size&quot;: 10162352,
+          &quot;order_correction&quot;: 2
+        }
+      ],
       &quot;confirmation&quot;: &quot;wait&quot;,
       &quot;executor_comment&quot;: null,
       &quot;customer_comment&quot;: null,
