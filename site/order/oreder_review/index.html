@@ -62,9 +62,9 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="#">Order</a>
     <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../order/">Создание заказа</a>
+                <li class="toctree-l2"><a class="reference internal" href="../order/">Создание и просмотр заказов</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../files/">Загрузка файлов в заказ</a>
+                <li class="toctree-l2"><a class="reference internal" href="../files/">Загрузка файлов в заказ, правки, результаты</a>
                 </li>
                 <li class="toctree-l2 current"><a class="reference internal current" href="./">Работа исполнителя с заказом</a>
     <ul class="current">
@@ -72,7 +72,13 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#_3">Обновление отклика на заказ</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">Выбор исполнителя</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">Просмотр списка возможных исполнителей для заказа</a>
+    </li>
     </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../order_result/">Работа с правкам</a>
                 </li>
     </ul>
                     </li>
@@ -173,6 +179,70 @@
   &quot;cancel_reason&quot;: &quot;low_budget&quot;,
 }
 </code></pre>
+<h2 id="_4">Выбор исполнителя</h2>
+<p>Для выбор исполнителя нужно воспользоваться ендпоинтом </p>
+<p>[POST]/api_v2/order/review_for_customer/{id}/ и послать параметр "status": "accepted"</p>
+<p>В момент, когда один отклик получит статус, все октрытые получат статус rejectd</p>
+<p><strong>Json Example</strong></p>
+<pre><code class="language-json">{
+&quot;status&quot;: &quot;accepted&quot;
+}
+</code></pre>
+<h2 id="_5">Просмотр списка возможных исполнителей для заказа</h2>
+<p>Просмотр списка откликов на заказ (доступе только заказчику):</p>
+<p>[GET]/api_v2/order/reviews_by_order_id/{id}/</p>
+<p>id - ид заказа</p>
+<p><strong>Json Example</strong></p>
+<pre><code class="language-json">{
+  &quot;count&quot;: 2,
+  &quot;next&quot;: null,
+  &quot;previous&quot;: null,
+  &quot;results&quot;: [
+    {
+      &quot;id&quot;: 7,
+      &quot;status&quot;: &quot;rejected&quot;,
+      &quot;to_price&quot;: null,
+      &quot;to_deadline&quot;: null,
+      &quot;cancel_reason&quot;: null,
+      &quot;show&quot;: null,
+      &quot;executor&quot;: {
+        &quot;id&quot;: 6,
+        &quot;username&quot;: &quot;moderator4&quot;,
+        &quot;first_name&quot;: &quot;&quot;,
+        &quot;last_name&quot;: &quot;&quot;,
+        &quot;email&quot;: &quot;moderator4@mail.ru&quot;,
+        &quot;level&quot;: null,
+        &quot;about&quot;: &quot;&quot;,
+        &quot;balls&quot;: 100,
+        &quot;phone&quot;: null,
+        &quot;avatar&quot;: null,
+        &quot;rating&quot;: 4
+      }
+    },
+    {
+      &quot;id&quot;: 8,
+      &quot;status&quot;: &quot;accepted&quot;,
+      &quot;to_price&quot;: null,
+      &quot;to_deadline&quot;: null,
+      &quot;cancel_reason&quot;: null,
+      &quot;show&quot;: null,
+      &quot;executor&quot;: {
+        &quot;id&quot;: 4,
+        &quot;username&quot;: &quot;moderator2&quot;,
+        &quot;first_name&quot;: &quot;&quot;,
+        &quot;last_name&quot;: &quot;&quot;,
+        &quot;email&quot;: &quot;moderator2@mail.ru&quot;,
+        &quot;level&quot;: null,
+        &quot;about&quot;: &quot;&quot;,
+        &quot;balls&quot;: 100,
+        &quot;phone&quot;: null,
+        &quot;avatar&quot;: null,
+        &quot;rating&quot;: 4
+      }
+    }
+  ]
+}
+</code></pre>
               
             </div>
           </div>
@@ -180,10 +250,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../messenger/join_to_chat/" class="btn btn-neutral float-right" title="Работа с чатом">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../order_result/" class="btn btn-neutral float-right" title="Работа с правкам">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../files/" class="btn btn-neutral" title="Загрузка файлов в заказ"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../files/" class="btn btn-neutral" title="Загрузка файлов в заказ, правки, результаты"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -212,7 +282,7 @@
       <span><a href="../files/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../messenger/join_to_chat/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../order_result/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

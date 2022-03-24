@@ -58,3 +58,79 @@
   "cancel_reason": "low_budget",
 }
 ```
+
+## Выбор исполнителя
+
+Для выбор исполнителя нужно воспользоваться ендпоинтом 
+
+[POST]/api_v2/order/review_for_customer/{id}/ и послать параметр "status": "accepted"
+
+В момент, когда один отклик получит статус, все октрытые получат статус rejectd
+
+**Json Example**
+```json
+{
+"status": "accepted"
+}
+```
+
+## Просмотр списка возможных исполнителей для заказа
+
+Просмотр списка откликов на заказ (доступе только заказчику):
+
+[GET]/api_v2/order/reviews_by_order_id/{id}/
+
+id - ид заказа
+
+**Json Example**
+```json
+{
+  "count": 2,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": 7,
+      "status": "rejected",
+      "to_price": null,
+      "to_deadline": null,
+      "cancel_reason": null,
+      "show": null,
+      "executor": {
+        "id": 6,
+        "username": "moderator4",
+        "first_name": "",
+        "last_name": "",
+        "email": "moderator4@mail.ru",
+        "level": null,
+        "about": "",
+        "balls": 100,
+        "phone": null,
+        "avatar": null,
+        "rating": 4
+      }
+    },
+    {
+      "id": 8,
+      "status": "accepted",
+      "to_price": null,
+      "to_deadline": null,
+      "cancel_reason": null,
+      "show": null,
+      "executor": {
+        "id": 4,
+        "username": "moderator2",
+        "first_name": "",
+        "last_name": "",
+        "email": "moderator2@mail.ru",
+        "level": null,
+        "about": "",
+        "balls": 100,
+        "phone": null,
+        "avatar": null,
+        "rating": 4
+      }
+    }
+  ]
+}
+```

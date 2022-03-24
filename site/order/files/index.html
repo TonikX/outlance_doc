@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Загрузка файлов в заказ - Фриланс биржа "Outlance"</title>
+  <title>Загрузка файлов в заказ, правки, результаты - Фриланс биржа "Outlance"</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430 \u0444\u0430\u0439\u043b\u043e\u0432 \u0432 \u0437\u0430\u043a\u0430\u0437";
+    var mkdocs_page_name = "\u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430 \u0444\u0430\u0439\u043b\u043e\u0432 \u0432 \u0437\u0430\u043a\u0430\u0437, \u043f\u0440\u0430\u0432\u043a\u0438, \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u044b";
     var mkdocs_page_input_path = "order\\files.md";
     var mkdocs_page_url = null;
   </script>
@@ -62,13 +62,15 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="#">Order</a>
     <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../order/">Создание заказа</a>
+                <li class="toctree-l2"><a class="reference internal" href="../order/">Создание и просмотр заказов</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Загрузка файлов в заказ</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Загрузка файлов в заказ, правки, результаты</a>
     <ul class="current">
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../oreder_review/">Работа исполнителя с заказом</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../order_result/">Работа с правкам</a>
                 </li>
     </ul>
                     </li>
@@ -108,7 +110,7 @@
         
       
     
-    <li>Загрузка файлов в заказ</li>
+    <li>Загрузка файлов в заказ, правки, результаты</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -123,6 +125,16 @@
                 <h1 id="_1">Загрузка файлов в заказ</h1>
 <p>/api_v2/order/task/file/ [POST]</p>
 <p>Необходимо передать поле "file" с файлом и "order" - айди заказа, к которому привязывается файл.</p>
+<h1 id="_2">Загрузка нескольких файлов в результат правки</h1>
+<p>/api_v2/order_result_/manyfile/ [POST]</p>
+<p>Необходимо передать поле "files" с файлом и "order_result" - айди результата правки, к которому привязывается файл.</p>
+<h1 id="_3">Удаление файла результата правки</h1>
+<p>/api_v2/order_result_/delete/{id}/ [DELETE]</p>
+<h1 id="_4">Загрузка нескольких файлов в правку</h1>
+<p>/api_v2/order_correction_/manyfile/ [POST]</p>
+<p>Необходимо передать поле "files" с файлом и "order_correction" - айди правки, к которому привязывается файл.</p>
+<h1 id="_5">Удаление файла правки</h1>
+<p>/api_v2/order_correction_/delete/{id}/ [DELETE]</p>
               
             </div>
           </div>
@@ -133,7 +145,7 @@
         <a href="../oreder_review/" class="btn btn-neutral float-right" title="Работа исполнителя с заказом">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../order/" class="btn btn-neutral" title="Создание заказа"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../order/" class="btn btn-neutral" title="Создание и просмотр заказов"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   

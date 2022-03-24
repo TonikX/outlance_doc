@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Создание заказа - Фриланс биржа "Outlance"</title>
+  <title>Создание и просмотр заказов - Фриланс биржа "Outlance"</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0437\u0430\u043a\u0430\u0437\u0430";
+    var mkdocs_page_name = "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0438 \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0437\u0430\u043a\u0430\u0437\u043e\u0432";
     var mkdocs_page_input_path = "order\\order.md";
     var mkdocs_page_url = null;
   </script>
@@ -62,15 +62,17 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="#">Order</a>
     <ul class="current">
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Создание заказа</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Создание и просмотр заказов</a>
     <ul class="current">
     <li class="toctree-l3"><a class="reference internal" href="#json-example">Json Example</a>
     </li>
     </ul>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../files/">Загрузка файлов в заказ</a>
+                <li class="toctree-l2"><a class="reference internal" href="../files/">Загрузка файлов в заказ, правки, результаты</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../oreder_review/">Работа исполнителя с заказом</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../order_result/">Работа с правкам</a>
                 </li>
     </ul>
                     </li>
@@ -110,7 +112,7 @@
         
       
     
-    <li>Создание заказа</li>
+    <li>Создание и просмотр заказов</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -122,7 +124,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="_1">Создание заказа</h1>
+                <h2 id="_1">Создание заказа</h2>
 <p>Создание/изменение заказа
 /api_v2/order/ [POST/ PATCH]</p>
 <p>Статусы заказа:
@@ -152,6 +154,9 @@
   &quot;customer&quot;: 0 // передавать не нужно, подставится сам
 }
 </code></pre>
+<h2 id="_2">Просмотр заказов</h2>
+<p>Отобразить только те заказы, которые соответствуют подтвержденным в портфолио категориям categories_filter=true</p>
+<p>Нельзя просмотреть заказ целиком, что у юзера нет подтвержденных категорий, которые указаны в заказе.</p>
               
             </div>
           </div>
@@ -159,7 +164,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../files/" class="btn btn-neutral float-right" title="Загрузка файлов в заказ">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../files/" class="btn btn-neutral float-right" title="Загрузка файлов в заказ, правки, результаты">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../../portfolio/check/" class="btn btn-neutral" title="Проверка портфолио"><span class="icon icon-circle-arrow-left"></span> Previous</a>

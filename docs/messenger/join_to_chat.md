@@ -19,7 +19,7 @@ ws://localhost:8888/messenger/chat/?token={{Обычный ЖВТ токен}}
 
 1) {pk: "1", action: "join_room", request_id: 1643788752396} - подключение к чату.
 
-2) {pk: "1", action: "retrieve", request_id: 1643788752396} - получение **ВСЕХ** сообщений чата по ИД чата.
+2) {pk: "1", action: "retrieve", request_id: 1643788752396} - получение **ВСЕХ** сообщений чата по ИД чата (если чат пагинированный action - "retrive_room_paginated_message_action".
 
 Пример ответа:
 ```json
@@ -35,7 +35,7 @@ response_status: 200 - код ответа (аналог статусов в х�
 
 3) {pk: "1", action: "subscribe_to_messages_in_room", request_id: 1643788752396} - подписка на все сообщения из чата
 
-4) {pk: "1", page: "1", action: "user_chat_list_action", request_id: 1643788752396} - получение всех чатов, к которым подключен юзер
+4) {action: "user_chat_list_action", request_id: 1643788752396} - получение всех чатов, к которым подключен юзер (если нужен пагинированный вывод - pag_user_chat_list_action)
 
 Пример ответа:
 ```json
@@ -70,7 +70,8 @@ Page - номер страницы
       "text": "dfdfdfdf",
       "date": "2022-01-25T15:08:43.700504Z",
       "chat": 1,
-      "reply_to_message": null
+      "reply_to_message": null,
+      "read": false
     },
   ]
 }
@@ -95,10 +96,80 @@ Page - номер страницы
         "text": "",
         "date": "2022-02-02T08:21:33.724162Z",
         "chat": 1,
-        "reply_to_message": null
+        "reply_to_message": null,
+        "read": false
     },
     "action": "create",
     "pk": 45
 }
 ```
-    
+
+7) {pk: "1", page: "1", action: "pag_user_chat_list_action", request_id: 1643960964254} - пагинированный список чатов ткущего юзера
+   action: "pag_user_chat_list_action"
+   page: "1"
+   pk: "1"
+   request_id: 1643960964254
+
+Пример ответа:
+
+```json
+{
+  "errors": [],
+  "data": {
+    "page": "1",
+    "default_page_size": 30,
+    "page_count_of_chats": 2,
+    "data": [
+      {
+        "pk": 1,
+        "executor": {
+          "id": 3,
+          "username": "moderator1",
+          "email": "moderator1@mail.ru"
+        },
+        "customer": {
+          "id": 1,
+          "username": "testexecutor",
+          "email": "testexecutor@outlance.me"
+        }
+      },
+      {
+        "pk": 2,
+        "executor": {
+          "id": 4,
+          "username": "moderator2",
+          "email": "moderator2@mail.ru"
+        },
+        "customer": {
+          "id": 1,
+          "username": "testexecutor",
+          "email": "testexecutor@outlance.me"
+        }
+      }
+    ]
+  },
+  "action": "pag_user_chat_list_action",
+  "response_status": 200,
+  "request_id": 1643960964254
+}
+```
+
+6) {"action":"message_read","request_id":1646930383586,"pk":60} - пометить сообщение прочитанным.
+
+pk - идентификатор сообщения.
+
+Пример ответа:
+
+```json
+{
+   "errors": [],
+   "data": {
+      "pk": 60
+   },
+   "action": "message_read",
+   "response_status": 200,
+   "request_id": 1646930383586
+}
+```
+
+Кроме того, сработает метод, который вернет сообщение целиком, если Вы подписаны на "subscribe_to_messages_in_room"

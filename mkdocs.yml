@@ -5,9 +5,10 @@ nav:
       - Portfolio:
           - "Проверка портфолио": portfolio/check.md
       - Order:
-          - "Создание заказа": order/order.md
-          - "Загрузка файлов в заказ": order/files.md
+          - "Создание и просмотр заказов": order/order.md
+          - "Загрузка файлов в заказ, правки, результаты": order/files.md
           - "Работа исполнителя с заказом": order/oreder_review.md
+          - "Работа с правкам": order/order_result.md
       - Messenger:
           - "Работа с чатом": messenger/join_to_chat.md
 
