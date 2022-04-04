@@ -164,21 +164,134 @@
   &quot;pk&quot;: 26
 }
 </code></pre>
-<h4 id="_5">Уведомление на результат проверки портфолио</h4>
+<h3 id="_5">Правки</h3>
+<h4 id="_6">Уведомления об изменении статуса правки для исполнителя</h4>
+<p>Подписаться: action: "subscribe_to_order_corrections_for_executor_for_notifications"</p>
+<p>Пример ответа:</p>
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;New status of edits: wait&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 1,
+    &quot;order_results_for_corrections&quot;: [
+      {
+        &quot;id&quot;: 14,
+        &quot;files_in_order_result&quot;: [
+          ...
+        ],
+        &quot;confirmation&quot;: null,
+        &quot;comment&quot;: &quot;string&quot;,
+        &quot;order_correction&quot;: 1,
+        &quot;order&quot;: null
+      },
+      {
+        &quot;id&quot;: 13,
+        &quot;files_in_order_result&quot;: [],
+        &quot;confirmation&quot;: null,
+        &quot;comment&quot;: &quot;string&quot;,
+        &quot;order_correction&quot;: 1,
+        &quot;order&quot;: null
+      }
+    ],
+    &quot;files_in_order_corrections&quot;: [
+      ...
+    ],
+    &quot;confirmation&quot;: &quot;wait&quot;,
+    &quot;executor_comment&quot;: &quot;&quot;,
+    &quot;customer_comment&quot;: &quot;&quot;,
+    &quot;surcharge&quot;: 12,
+    &quot;order&quot;: 6,
+    &quot;this_executor&quot;: 1
+  },
+  &quot;action&quot;: &quot;update&quot;,
+  &quot;pk&quot;: 1
+}  
+
+</code></pre>
+<h3 id="_7">Ответы на правки исполнителю</h3>
+<h4 id="_8">Уведомление на результат правки</h4>
 <p>Подписаться: action: "subscribe_to_executor_portfolios_for_executor_for_notifications"</p>
 <p>Уведомления:</p>
 <p>1) Если статус "confirmed"</p>
 <p>Пример ответа:</p>
 <pre><code class="language-json">{
-
+  &quot;message&quot;: &quot;New status of results of edits: accepted&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 14,
+    &quot;files_in_order_result&quot;: [
+      ...
+    ],
+    &quot;confirmation&quot;: &quot;accepted&quot;,
+    &quot;comment&quot;: &quot;string&quot;,
+    &quot;order_correction&quot;: 1,
+    &quot;order&quot;: 6
+  },
+  &quot;action&quot;: &quot;update&quot;,
+  &quot;pk&quot;: 14
 }
 </code></pre>
-<h4 id="_6">Уведомление на результат проверки портфолио</h4>
+<h4 id="_9">Уведомления об изменении статуса правки для заказчика</h4>
+<p>Подписаться: action: "subscribe_to_order_corrections_for_executor_for_notifications"</p>
+<p>Пример ответа:</p>
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;New status of edits: wait&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 1,
+    &quot;order_results_for_corrections&quot;: [
+      {
+        &quot;id&quot;: 14,
+        &quot;files_in_order_result&quot;: [
+          ...
+        ],
+        &quot;confirmation&quot;: null,
+        &quot;comment&quot;: &quot;string&quot;,
+        &quot;order_correction&quot;: 1,
+        &quot;order&quot;: null
+      },
+      {
+        &quot;id&quot;: 13,
+        &quot;files_in_order_result&quot;: [],
+        &quot;confirmation&quot;: null,
+        &quot;comment&quot;: &quot;string&quot;,
+        &quot;order_correction&quot;: 1,
+        &quot;order&quot;: null
+      }
+    ],
+    &quot;files_in_order_corrections&quot;: [
+      ...
+    ],
+    &quot;confirmation&quot;: &quot;wait&quot;,
+    &quot;executor_comment&quot;: &quot;&quot;,
+    &quot;customer_comment&quot;: &quot;&quot;,
+    &quot;surcharge&quot;: 12,
+    &quot;order&quot;: 6,
+    &quot;this_executor&quot;: 1
+  },
+  &quot;action&quot;: &quot;update&quot;,
+  &quot;pk&quot;: 1
+}  
+
+</code></pre>
+<h3 id="_10">Ответы на правки заказчику</h3>
+<h4 id="_11">Уведомление на результат правки</h4>
 <p>Подписаться: action: "subscribe_to_executor_portfolios_for_executor_for_notifications"</p>
 <p>Уведомления:</p>
 <p>1) Если статус "confirmed"</p>
 <p>Пример ответа:</p>
-<pre><code class="language-json">
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;New status of results of edits: accepted&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 14,
+    &quot;files_in_order_result&quot;: [
+      ...
+    ],
+    &quot;confirmation&quot;: &quot;accepted&quot;,
+    &quot;comment&quot;: &quot;string&quot;,
+    &quot;order_correction&quot;: 1,
+    &quot;order&quot;: 6
+  },
+  &quot;action&quot;: &quot;update&quot;,
+  &quot;pk&quot;: 14
+}
 </code></pre>
               
             </div>
