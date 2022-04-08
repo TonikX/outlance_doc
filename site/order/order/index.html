@@ -80,6 +80,8 @@
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../../messenger/join_to_chat/">Работа с чатом</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../messenger/notofication/">Работа с уведомлениями</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -157,6 +159,17 @@
 <h2 id="_2">Просмотр заказов</h2>
 <p>Отобразить только те заказы, которые соответствуют подтвержденным в портфолио категориям categories_filter=true</p>
 <p>Нельзя просмотреть заказ целиком, что у юзера нет подтвержденных категорий, которые указаны в заказе.</p>
+<h2 id="_3">Просмотр заказаов в зависимости от роли сейчас</h2>
+<p>/api_v2/order_for_personal_area/ [GET]</p>
+<p>Параметры:</p>
+<ul>
+<li>status - фильтр по статусу заказа 
+  /api_v2/order_for_personal_area/?status=prepare[GET]</li>
+</ul>
+<p>Для заказчика:
+выведутся заказы у которых customer=этот пользователь</p>
+<p>Для исполнителя:
+выведутся заказы у которых в откликах на заказа (OrderReview), есть отклик у которого status="done" (или 'accepted' или "in_progress")и executor=этот пользователь</p>
               
             </div>
           </div>

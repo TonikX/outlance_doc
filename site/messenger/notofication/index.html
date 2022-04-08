@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Оповещения - Фриланс биржа "Outlance"</title>
+  <title>Работа с уведомлениями - Фриланс биржа "Outlance"</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u041e\u043f\u043e\u0432\u0435\u0449\u0435\u043d\u0438\u044f";
+    var mkdocs_page_name = "\u0420\u0430\u0431\u043e\u0442\u0430 \u0441 \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u044f\u043c\u0438";
     var mkdocs_page_input_path = "messenger\\notofication.md";
     var mkdocs_page_url = null;
   </script>
@@ -53,7 +53,7 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Api</span></p>
-                <ul>
+                <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="#">Portfolio</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../../portfolio/check/">Проверка портфолио</a>
@@ -72,9 +72,25 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Messenger</a>
-    <ul>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Messenger</a>
+    <ul class="current">
                 <li class="toctree-l2"><a class="reference internal" href="../join_to_chat/">Работа с чатом</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Работа с уведомлениями</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#_2">Исполнитель</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_3">Портфолио</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_5">Правки</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_7">Ответы на правки исполнителю</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_10">Ответы на правки заказчику</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                 </li>
     </ul>
                     </li>
@@ -99,8 +115,16 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Api &raquo;</li>
+        
+      
+        
+          <li>Messenger &raquo;</li>
+        
+      
     
-    <li>Оповещения</li>
+    <li>Работа с уведомлениями</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -164,26 +188,146 @@
   &quot;pk&quot;: 26
 }
 </code></pre>
-<h4 id="_5">Уведомление на результат проверки портфолио</h4>
+<h3 id="_5">Правки</h3>
+<h4 id="_6">Уведомления об изменении статуса правки для исполнителя</h4>
+<p>Подписаться: action: "subscribe_to_order_corrections_for_executor_for_notifications"</p>
+<p>Пример ответа:</p>
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;New status of edits: wait&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 1,
+    &quot;order_results_for_corrections&quot;: [
+      {
+        &quot;id&quot;: 14,
+        &quot;files_in_order_result&quot;: [
+          ...
+        ],
+        &quot;confirmation&quot;: null,
+        &quot;comment&quot;: &quot;string&quot;,
+        &quot;order_correction&quot;: 1,
+        &quot;order&quot;: null
+      },
+      {
+        &quot;id&quot;: 13,
+        &quot;files_in_order_result&quot;: [],
+        &quot;confirmation&quot;: null,
+        &quot;comment&quot;: &quot;string&quot;,
+        &quot;order_correction&quot;: 1,
+        &quot;order&quot;: null
+      }
+    ],
+    &quot;files_in_order_corrections&quot;: [
+      ...
+    ],
+    &quot;confirmation&quot;: &quot;wait&quot;,
+    &quot;executor_comment&quot;: &quot;&quot;,
+    &quot;customer_comment&quot;: &quot;&quot;,
+    &quot;surcharge&quot;: 12,
+    &quot;order&quot;: 6,
+    &quot;this_executor&quot;: 1
+  },
+  &quot;action&quot;: &quot;update&quot;,
+  &quot;pk&quot;: 1
+}  
+
+</code></pre>
+<h3 id="_7">Ответы на правки исполнителю</h3>
+<h4 id="_8">Уведомление на результат правки</h4>
 <p>Подписаться: action: "subscribe_to_executor_portfolios_for_executor_for_notifications"</p>
 <p>Уведомления:</p>
 <p>1) Если статус "confirmed"</p>
 <p>Пример ответа:</p>
 <pre><code class="language-json">{
-
+  &quot;message&quot;: &quot;New status of results of edits: accepted&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 14,
+    &quot;files_in_order_result&quot;: [
+      ...
+    ],
+    &quot;confirmation&quot;: &quot;accepted&quot;,
+    &quot;comment&quot;: &quot;string&quot;,
+    &quot;order_correction&quot;: 1,
+    &quot;order&quot;: 6
+  },
+  &quot;action&quot;: &quot;update&quot;,
+  &quot;pk&quot;: 14
 }
 </code></pre>
-<h4 id="_6">Уведомление на результат проверки портфолио</h4>
+<h4 id="_9">Уведомления об изменении статуса правки для заказчика</h4>
+<p>Подписаться: action: "subscribe_to_order_corrections_for_executor_for_notifications"</p>
+<p>Пример ответа:</p>
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;New status of edits: wait&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 1,
+    &quot;order_results_for_corrections&quot;: [
+      {
+        &quot;id&quot;: 14,
+        &quot;files_in_order_result&quot;: [
+          ...
+        ],
+        &quot;confirmation&quot;: null,
+        &quot;comment&quot;: &quot;string&quot;,
+        &quot;order_correction&quot;: 1,
+        &quot;order&quot;: null
+      },
+      {
+        &quot;id&quot;: 13,
+        &quot;files_in_order_result&quot;: [],
+        &quot;confirmation&quot;: null,
+        &quot;comment&quot;: &quot;string&quot;,
+        &quot;order_correction&quot;: 1,
+        &quot;order&quot;: null
+      }
+    ],
+    &quot;files_in_order_corrections&quot;: [
+      ...
+    ],
+    &quot;confirmation&quot;: &quot;wait&quot;,
+    &quot;executor_comment&quot;: &quot;&quot;,
+    &quot;customer_comment&quot;: &quot;&quot;,
+    &quot;surcharge&quot;: 12,
+    &quot;order&quot;: 6,
+    &quot;this_executor&quot;: 1
+  },
+  &quot;action&quot;: &quot;update&quot;,
+  &quot;pk&quot;: 1
+}  
+
+</code></pre>
+<h3 id="_10">Ответы на правки заказчику</h3>
+<h4 id="_11">Уведомление на результат правки</h4>
 <p>Подписаться: action: "subscribe_to_executor_portfolios_for_executor_for_notifications"</p>
 <p>Уведомления:</p>
 <p>1) Если статус "confirmed"</p>
 <p>Пример ответа:</p>
-<pre><code class="language-json">
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;New status of results of edits: accepted&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 14,
+    &quot;files_in_order_result&quot;: [
+      ...
+    ],
+    &quot;confirmation&quot;: &quot;accepted&quot;,
+    &quot;comment&quot;: &quot;string&quot;,
+    &quot;order_correction&quot;: 1,
+    &quot;order&quot;: 6
+  },
+  &quot;action&quot;: &quot;update&quot;,
+  &quot;pk&quot;: 14
+}
 </code></pre>
               
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../join_to_chat/" class="btn btn-neutral" title="Работа с чатом"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -206,6 +350,8 @@
   <div class="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     
+    
+      <span><a href="../join_to_chat/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
   </span>

@@ -11,6 +11,7 @@ nav:
           - "Работа с правкам": order/order_result.md
       - Messenger:
           - "Работа с чатом": messenger/join_to_chat.md
+          - "Работа с уведомлениями": messenger/notofication.md
 
 theme:
   name: readthedocs
