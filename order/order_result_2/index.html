@@ -74,6 +74,8 @@
     <ul class="current">
     <li class="toctree-l3"><a class="reference internal" href="#_2">Создание</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">Получение результатов по правке</a>
+    </li>
     </ul>
                 </li>
     </ul>
@@ -131,11 +133,23 @@
                 <h2 id="_1">Ответы на правки</h2>
 <h3 id="_2">Создание</h3>
 <p>Создавать может только утвержденный исполнитель заказа</p>
-<p>[POST]  http://localhost:8889/api_v2/order_result/ </p>
+<p>[POST] http://localhost:8889/api_v2/order_result/ </p>
 <p><strong>Json Example</strong></p>
 <pre><code class="language-json">{
   &quot;comment&quot;: &quot;крутяк&quot;,
   &quot;order_correction&quot;: 1
+}
+</code></pre>
+<h3 id="_3">Получение результатов по правке</h3>
+<p>[GET] /api_v2/order_result_last/{order_correction_pk}</p>
+<p><strong>Json Example</strong></p>
+<pre><code class="language-json">{
+  &quot;id&quot;: 15,
+  &quot;files_in_order_result&quot;: [],
+  &quot;confirmation&quot;: &quot;accepted&quot;,
+  &quot;comment&quot;: &quot;dfdf&quot;,
+  &quot;order_correction&quot;: 1,
+  &quot;order&quot;: 6
 }
 </code></pre>
               
