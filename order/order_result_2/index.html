@@ -76,6 +76,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#_3">Получение результатов по правке</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">Утверждение результатов правки заказчиком</a>
+    </li>
     </ul>
                 </li>
     </ul>
@@ -159,6 +161,14 @@
   &quot;price&quot;: 10000,
   &quot;order_correction&quot;: 1,
   &quot;order&quot;: 6
+}
+</code></pre>
+<h3 id="_4">Утверждение результатов правки заказчиком</h3>
+<p>Только смена статуса результата. Может использовать только заказчик.</p>
+<p>[PATCH] /api_v2/order_correction_for_customer/{id}/</p>
+<p><strong>Json Example</strong></p>
+<pre><code class="language-json">{
+  &quot;confirmation&quot;: &quot;accepted&quot;
 }
 </code></pre>
               
