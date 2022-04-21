@@ -252,7 +252,21 @@
 }
 </code></pre>
 <h2 id="looked">Получение последнего отклика на заказ текущего юзера со статусом "Looked"</h2>
-<p>[GET]/api_v2/order/review_for_customer/{id}/ и послать параметр "status": "accepted"</p>
+<p>[GET] order_looked/</p>
+<p><strong>Json Example</strong></p>
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: 14,
+    &quot;status&quot;: &quot;looked&quot;,
+    &quot;to_price&quot;: null,
+    &quot;to_deadline&quot;: null,
+    &quot;cancel_reason&quot;: null,
+    &quot;show&quot;: null,
+    &quot;executor&quot;: 3,
+    &quot;order&quot;: 9
+  }
+]
+</code></pre>
               
             </div>
           </div>
