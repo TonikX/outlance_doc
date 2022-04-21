@@ -174,6 +174,68 @@
 выведутся заказы у которых customer=этот пользователь</p>
 <p>Для исполнителя:
 выведутся заказы у которых в откликах на заказа (OrderReview), есть отклик у которого status="done" (или 'accepted' или "in_progress")и executor=этот пользователь</p>
+<h2 id="_4">Просмотр возможных испонителей заказа</h2>
+<p>[GET] /api_v2/user_for_order/номер заказа/</p>
+<pre><code class="language-json">{
+  &quot;count&quot;: 2,
+  &quot;next&quot;: null,
+  &quot;previous&quot;: null,
+  &quot;results&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;username&quot;: &quot;testexecutor&quot;,
+      &quot;first_name&quot;: &quot;dfdf&quot;,
+      &quot;last_name&quot;: &quot;dfdf&quot;,
+      &quot;email&quot;: &quot;testexecutor@outlance.me&quot;,
+      &quot;created&quot;: &quot;2022-01-04T09:44:21.075842Z&quot;,
+      &quot;groups&quot;: [
+        {
+          &quot;id&quot;: 1,
+          &quot;name&quot;: &quot;customer&quot;
+        }
+      ],
+      &quot;level&quot;: null,
+      &quot;about&quot;: &quot;&quot;,
+      &quot;birthdate&quot;: null,
+      &quot;balls&quot;: 100,
+      &quot;role_now&quot;: &quot;executor&quot;,
+      &quot;black_list&quot;: [],
+      &quot;theme_flowers&quot;: null,
+      &quot;language&quot;: null,
+      &quot;phone&quot;: null,
+      &quot;avatar&quot;: &quot;http://localhost:8889/media/images/images/avatar/7ba1adacf82e4090a866363b853605c4.jpg&quot;,
+      &quot;banner&quot;: &quot;http://localhost:8889/media/images/images/banner/3bf425b00ecb41b09ba7c3d6945c6922.jpg&quot;,
+      &quot;rating&quot;: -28
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;username&quot;: &quot;moderator1&quot;,
+      &quot;first_name&quot;: &quot;&quot;,
+      &quot;last_name&quot;: &quot;&quot;,
+      &quot;email&quot;: &quot;moderator1@mail.ru&quot;,
+      &quot;created&quot;: &quot;2022-01-11T18:45:15.581482Z&quot;,
+      &quot;groups&quot;: [
+        {
+          &quot;id&quot;: 1,
+          &quot;name&quot;: &quot;customer&quot;
+        }
+      ],
+      &quot;level&quot;: null,
+      &quot;about&quot;: &quot;&quot;,
+      &quot;birthdate&quot;: null,
+      &quot;balls&quot;: 100,
+      &quot;role_now&quot;: &quot;executor&quot;,
+      &quot;black_list&quot;: [],
+      &quot;theme_flowers&quot;: null,
+      &quot;language&quot;: null,
+      &quot;phone&quot;: null,
+      &quot;avatar&quot;: null,
+      &quot;banner&quot;: null,
+      &quot;rating&quot;: 0
+    }
+  ]
+}
+</code></pre>
               
             </div>
           </div>
