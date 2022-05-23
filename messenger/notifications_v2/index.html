@@ -92,7 +92,7 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#_4">Заказ</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#orderreview_1">Отклие по заказу (OrderReview)</a>
+    <li class="toctree-l4"><a class="reference internal" href="#orderreview_1">Отклик по заказу (OrderReview)</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#ordercorrection">Правки по заказу (OrderCorrection)</a>
     </li>
@@ -258,8 +258,8 @@
 }
 </code></pre>
 <h3 id="orderreview">Отклик по заказу (OrderReview)</h3>
-<p>1) Изменение статуса отклика с 'looked' на 'rejected' или 'accepted' или 'in_progress' или 'reconciliation'
-Пример ответа:</p>
+<p>1) Изменение статуса отклика с 'looked' или 'accepted' или 'in_progress' или 'reconciliation'</p>
+<p>Пример ответа:</p>
 <pre><code class="language-json">{
   &quot;type&quot;: &quot;notification_activity&quot;,
   &quot;data&quot;: {
@@ -314,16 +314,87 @@
 </code></pre>
 <h2 id="_3">Исполнитель</h2>
 <h3 id="_4">Заказ</h3>
-<h3 id="orderreview_1">Отклие по заказу (OrderReview)</h3>
-<p>1) Уведомление исполнителю о том взяли его в заказ или нет - изменение со статуса "reconciliation" на другой статус:
-Пример ответа:</p>
-<pre><code class="language-json"></code></pre>
+<h3 id="orderreview_1">Отклик по заказу (OrderReview)</h3>
+<p>1) Уведомление исполнителю о том взяли его в заказ или нет - изменение со статуса "reconciliation" на другой статус:</p>
+<p>Пример ответа:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;notification_activity&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 90,
+    &quot;json&quot;: {
+      &quot;id&quot;: 5,
+      &quot;status&quot;: &quot;accepted&quot;,
+      &quot;to_price&quot;: null,
+      &quot;to_deadline&quot;: null,
+      &quot;cancel_reason&quot;: null,
+      &quot;show&quot;: null,
+      &quot;executor&quot;: 2,
+      &quot;order&quot;: 1
+    },
+    &quot;date_time&quot;: &quot;2022-05-23T16:20:42.555068Z&quot;,
+    &quot;message&quot;: &quot;New status of order review: accepted&quot;,
+    &quot;new_status&quot;: &quot;accepted&quot;,
+    &quot;type&quot;: &quot;order_review&quot;,
+    &quot;read&quot;: false
+  },
+  &quot;action&quot;: &quot;create&quot;,
+  &quot;pk&quot;: 90
+}
+</code></pre>
 <h3 id="ordercorrection">Правки по заказу (OrderCorrection)</h3>
-<p>1) При изменении статуса с 'wait' присылается новый статус
-Пример ответа:</p>
-<pre><code class="language-json"></code></pre>
-<p>2) При изменении статуса с 'on_check_by_customer' присылается новый статус
-Пример ответа:</p>
+<p>1) При изменении статуса с 'wait' присылается новый статус</p>
+<p>Пример ответа:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;notification_activity&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 93,
+    &quot;json&quot;: {
+      &quot;id&quot;: 1,
+      &quot;order_results_for_corrections&quot;: [
+        {
+          &quot;id&quot;: 1,
+          &quot;files_in_order_result&quot;: [],
+          &quot;confirmation&quot;: &quot;not_accepted&quot;,
+          &quot;comment&quot;: &quot;&quot;,
+          &quot;description&quot;: &quot;asdsad&quot;,
+          &quot;price&quot;: null,
+          &quot;is_final_result&quot;: false,
+          &quot;order_correction&quot;: 1,
+          &quot;order&quot;: 1
+        },
+        {
+          &quot;id&quot;: 2,
+          &quot;files_in_order_result&quot;: [],
+          &quot;confirmation&quot;: &quot;on_check_by_customer&quot;,
+          &quot;comment&quot;: &quot;&quot;,
+          &quot;description&quot;: &quot;&quot;,
+          &quot;price&quot;: null,
+          &quot;is_final_result&quot;: false,
+          &quot;order_correction&quot;: 1,
+          &quot;order&quot;: 3
+        }
+      ],
+      &quot;files_in_order_corrections&quot;: [],
+      &quot;confirmation&quot;: &quot;on_check_by_customer&quot;,
+      &quot;executor_comment&quot;: &quot;а&quot;,
+      &quot;customer_comment&quot;: &quot;вава&quot;,
+      &quot;surcharge&quot;: null,
+      &quot;rejection_reason&quot;: &quot;&quot;,
+      &quot;order&quot;: 3,
+      &quot;this_executor&quot;: 2
+    },
+    &quot;date_time&quot;: &quot;2022-05-23T16:30:39.428619Z&quot;,
+    &quot;message&quot;: &quot;New status of order correction: on_check_by_customer&quot;,
+    &quot;new_status&quot;: &quot;on_check_by_customer&quot;,
+    &quot;type&quot;: &quot;order_correction&quot;,
+    &quot;read&quot;: false
+  },
+  &quot;action&quot;: &quot;create&quot;,
+  &quot;pk&quot;: 93
+}
+</code></pre>
+<p>2) При изменении статуса с 'on_check_by_customer' присылается новый статус</p>
+<p>Пример ответа:</p>
 <pre><code class="language-json"></code></pre>
 <h3 id="orderresult_1">Правки по результату правки (OrderResult)</h3>
 <p>1) При изменении статуса с 'on_check_by_customer' на "not_accepted"
