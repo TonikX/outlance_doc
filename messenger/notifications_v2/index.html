@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Оповещения в2 - Фриланс биржа "Outlance"</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u041e\u043f\u043e\u0432\u0435\u0449\u0435\u043d\u0438\u044f \u04322";
+        var mkdocs_page_input_path = "messenger\\notifications_v2.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Фриланс биржа "Outlance"
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Api</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Portfolio</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../portfolio/check/">Проверка портфолио</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Order</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../order/addititons/">Дополнения</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../order/order/">Создание и просмотр заказов</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../order/files/">Загрузка файлов в заказ, правки, результаты</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../order/oreder_review/">Работа исполнителя с заказом</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../order/order_result/">Работа с правкам</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../order/order_result_2/">Работа с ответами на правки</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Messenger</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../join_to_chat/">Работа с чатом</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../notofication/">Работа с уведомлениями</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Фриланс биржа "Outlance"</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Оповещения в2</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2">Оповещения в2</h1>
+<h2 id="_1">Заказчик</h2>
+<h3 id="_2">Заказ</h3>
+<p>1) Статус меняется с "prepare" на "search"
+Пример ответа:</p>
+<pre><code class="language-json"></code></pre>
+<p>2) Статус меняется с "search" на "changed_search"
+Пример ответа:</p>
+<pre><code class="language-json"></code></pre>
+<h3 id="orderreview">Отклик по заказу (OrderReview)</h3>
+<p>1) Изменение статуса отклика с 'looked' на 'rejected' или 'accepted' или 'in_progress' или 'reconciliation'
+Пример ответа:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;notification_activity&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 67,
+    &quot;json&quot;: {
+      &quot;id&quot;: 5,
+      &quot;status&quot;: &quot;in_progress&quot;,
+      &quot;to_price&quot;: null,
+      &quot;to_deadline&quot;: null,
+      &quot;cancel_reason&quot;: null,
+      &quot;show&quot;: null,
+      &quot;executor&quot;: 2,
+      &quot;order&quot;: 1
+    },
+    &quot;date_time&quot;: &quot;2022-05-23T14:44:14.363195Z&quot;,
+    &quot;message&quot;: &quot;New status of order review: in_progress&quot;,
+    &quot;new_status&quot;: &quot;in_progress&quot;,
+    &quot;type&quot;: &quot;order_review&quot;,
+    &quot;read&quot;: false
+  },
+  &quot;action&quot;: &quot;create&quot;,
+  &quot;pk&quot;: 67
+}
+</code></pre>
+<h3 id="orderresult">Правки по результату правки (OrderResult)</h3>
+<p>1) При новом статусе 'on_check_by_customer'</p>
+<p>Пример ответа:</p>
+<pre><code class="language-json"></code></pre>
+<h2 id="_3">Исполнитель</h2>
+<h3 id="_4">Заказ</h3>
+<h3 id="orderreview_1">Отклие по заказу (OrderReview)</h3>
+<p>1) Уведомление исполнителю о том взяли его в заказ или нет - изменение со статуса "reconciliation" на другой статус:
+Пример ответа:</p>
+<pre><code class="language-json"></code></pre>
+<h3 id="ordercorrection">Правки по заказу (OrderCorrection)</h3>
+<p>1) При изменении статуса с 'wait' присылается новый статус
+Пример ответа:</p>
+<pre><code class="language-json"></code></pre>
+<p>2) При изменении статуса с 'on_check_by_customer' присылается новый статус
+Пример ответа:</p>
+<pre><code class="language-json"></code></pre>
+<h3 id="orderresult_1">Правки по результату правки (OrderResult)</h3>
+<p>1) При изменении статуса с 'on_check_by_customer' на "not_accepted"
+Пример ответа:</p>
+<pre><code class="language-json"></code></pre>
+<p>2) При изменении статуса с 'on_check_by_customer' на "accepted"
+Пример ответа:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;notification_activity&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 72,
+    &quot;json&quot;: {
+      &quot;id&quot;: 2,
+      &quot;files_in_order_result&quot;: [],
+      &quot;confirmation&quot;: &quot;accepted&quot;,
+      &quot;comment&quot;: &quot;&quot;,
+      &quot;description&quot;: &quot;&quot;,
+      &quot;price&quot;: null,
+      &quot;is_final_result&quot;: false,
+      &quot;order_correction&quot;: 1,
+      &quot;order&quot;: 3
+    },
+    &quot;date_time&quot;: &quot;2022-05-23T15:14:03.080108Z&quot;,
+    &quot;message&quot;: &quot;New status of order result: accepted&quot;,
+    &quot;new_status&quot;: &quot;accepted&quot;,
+    &quot;type&quot;: &quot;order_result&quot;,
+    &quot;read&quot;: false
+  },
+  &quot;action&quot;: &quot;create&quot;,
+  &quot;pk&quot;: 72
+}
+</code></pre>
+<h3 id="executorportfolio">Портфолио (ExecutorPortfolio)</h3>
+<p>1) При изменении статуса на "confirmed"
+Пример ответа:</p>
+<pre><code class="language-json"></code></pre>
+<p>2) При изменении статуса на "rejected"
+Пример ответа:</p>
+<pre><code class="language-json"></code></pre>
+<h3 id="skillinportfolio">Скилл в портфолио (SkillInPortfolio)</h3>
+<p>1) При изменении статуса на "confirmed"
+Пример ответа:</p>
+<pre><code class="language-json"></code></pre>
+<p>2) При изменении статуса на "rejected" 
+Пример ответа:</p>
+<pre><code class="language-json"></code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
